@@ -3,7 +3,22 @@ guid: 46b4f5f2260af47968a581b51788c091
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StageLigt_11_black_leather
+    second: {fileID: 2100000, guid: d34c0c192ee034f6b8c32088a130b95d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StageLigt_11_glass
+    second: {fileID: 2100000, guid: 9523e8c6c909347feacff46e34b2c11b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StageLigt_11_plastic_2
+    second: {fileID: 2100000, guid: e47544ba76eb94bd097ec6c403806380, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
