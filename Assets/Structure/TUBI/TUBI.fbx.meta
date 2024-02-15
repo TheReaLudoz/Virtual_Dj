@@ -3,7 +3,12 @@ guid: 23626eebf9f4b47678921b3847268e5e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "black metal pasl\u01311"
+    second: {fileID: 2100000, guid: 8de8ceef7f0bb4ffd85f621063301846, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
