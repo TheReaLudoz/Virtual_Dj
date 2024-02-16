@@ -8684,6 +8684,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 953160144729454523, guid: c353e36f8f3e44ba3a661a7e7a21b5fa, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 4592157034847432545, guid: c353e36f8f3e44ba3a661a7e7a21b5fa, type: 3}
       propertyPath: m_Name
       value: Particle System
