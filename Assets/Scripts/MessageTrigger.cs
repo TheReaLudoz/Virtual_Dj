@@ -7,6 +7,10 @@ public class MessageTrigging : MonoBehaviour
     // Start is called before the first frame update
     public Message[] messages;
     public Actor[] actors;
+
+    public void StartSialogue(){
+        FindObjectOfType<DialogueManager>().OpenDialogue(messages, actors);
+    }
 }
 [System.Serializable]
 public class Message{
