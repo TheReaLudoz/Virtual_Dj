@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class Dialogue : MonoBehaviour
+
 {   
     public Image actorImage;
     public Text actorName;

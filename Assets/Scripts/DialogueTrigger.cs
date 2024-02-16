@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     public Message[] messages;
     public Actor[] actors;
 
-    public void StartDialogue(){
+    public void StartSialogue(){
         FindObjectOfType<DialogueManager>().OpenDialogue(messages, actors);
     }
 }
