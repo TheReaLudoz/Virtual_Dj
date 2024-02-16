@@ -2,7 +2,13 @@
     "files.exclude": {
         "**/.DS_Store": true,
         "**/.git": true,
+<<<<<<< HEAD
+        "**/.vs": true,
         "**/.gitmodules": true,
+        "**/.vsconfig": true,
+=======
+        "**/.gitmodules": true,
+>>>>>>> 32b456180e378938636f1f68efff303c6f5f8162
         "**/*.booproj": true,
         "**/*.pidb": true,
         "**/*.suo": true,
@@ -47,9 +53,20 @@
         "library/": true,
         "obj/": true,
         "Obj/": true,
+<<<<<<< HEAD
+        "Logs/": true,
+        "logs/": true,
+        "ProjectSettings/": true,
+        "UserSettings/": true,
+        "temp/": true,
+        "Temp/": true
+    },
+    "dotnet.defaultSolution": "progetto vr.sln"
+=======
         "ProjectSettings/": true,
         "temp/": true,
         "Temp/": true
     },
     "dotnet.defaultSolution": "Virtual_Dj.sln"
+>>>>>>> 32b456180e378938636f1f68efff303c6f5f8162
 }
