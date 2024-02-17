@@ -3,7 +3,172 @@ guid: 94113e8316d434d30a486bbfda7e9180
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base
+    second: {fileID: 2100000, guid: f2d37901000fe456ca9ab5a5a0bbcd4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base.003
+    second: {fileID: 2100000, guid: 27a81cc477e1b43ff8855c46b01ae175, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base.004
+    second: {fileID: 2100000, guid: 65c71865b042543a6b67ae0e2596de25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base.006
+    second: {fileID: 2100000, guid: d8d03ded7ff9b4b06a150e7935d4d4f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base.009
+    second: {fileID: 2100000, guid: 0fbf6b7959f404eaeb03a3530eb6e88a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base.010
+    second: {fileID: 2100000, guid: 44efc3018a476490997ca0500d1c68a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base.011
+    second: {fileID: 2100000, guid: 960c86986fee84abaa70a3d8cf41442d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CUE_
+    second: {fileID: 2100000, guid: a4234f06c50424413b0201dc88f73d58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: INTORNO_PIATTI
+    second: {fileID: 2100000, guid: f4befba298cad486ba35007ab8ec2409, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: eadec583cdc8142e0aafb79f7d70134b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 87af3bef5a33043199001de2d0147f38, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ON OFF
+    second: {fileID: 2100000, guid: 8c8d37274ad4c41d78192228ead9a3c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PIATTI
+    second: {fileID: 2100000, guid: 5ca2feddf1ffd4ade9bc510247c054ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SLIDERS
+    second: {fileID: 2100000, guid: ad175eecf9ec34d519b135baed9c0264, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SLIDERS CERCHI
+    second: {fileID: 2100000, guid: 2606083f322da4256bb3abc08d17543b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TASTI SOPRA AKAI
+    second: {fileID: 2100000, guid: a74cd570a871d4e16b65580e4a931d7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TASTI_CENTRALI_NERI
+    second: {fileID: 2100000, guid: 0a240e17a01844c37a37792f80b9f553, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP
+    second: {fileID: 2100000, guid: eb982799bc5334734a405d1d5c558d58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.001
+    second: {fileID: 2100000, guid: 386d652dfb6d24d778b9e92afecd355d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.002
+    second: {fileID: 2100000, guid: 09884678244484b3baca67df50e7dfbf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.003
+    second: {fileID: 2100000, guid: 37db4446022e74757a4a1fd147b0d9a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.004
+    second: {fileID: 2100000, guid: 4c1d9bb154bed45749c89c38d8aa05b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.005
+    second: {fileID: 2100000, guid: 837bc40ba4a534b8eb28c584600b9a43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.006
+    second: {fileID: 2100000, guid: 782e466004eed4f2c84ff835739d26b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.007
+    second: {fileID: 2100000, guid: 52f3c159bb7454870af8db86beab57d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.008
+    second: {fileID: 2100000, guid: 78fca90efc33c40fc9c5e7a86fa9707a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.009
+    second: {fileID: 2100000, guid: 85d05f1153a054e438d6e20339edae0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.010
+    second: {fileID: 2100000, guid: e2f109308494948d091fc32b2712da5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.011
+    second: {fileID: 2100000, guid: 1a2fb9683bd154cc8ab7b0a790f2b47e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.012
+    second: {fileID: 2100000, guid: 391347fa511774d8d9fb03e709b52bd5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.013
+    second: {fileID: 2100000, guid: f79b02d085a034b7bae93d93ee0887e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP.014
+    second: {fileID: 2100000, guid: 29e75bbbac9c4418d9b65751d01a3d38, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TT_color_16
+    second: {fileID: 2100000, guid: 817753a3c38cb41f9ba10bc51bad28ce, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

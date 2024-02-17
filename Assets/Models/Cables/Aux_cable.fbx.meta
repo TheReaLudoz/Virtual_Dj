@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models/Cables/Aux_cable.fbx.meta
 guid: 1f1ca6510ca669f40a53a766d67497e0
+========
+guid: 4fa765d9b594cf64a984d07bf83056d4
+>>>>>>>> origin/main:Assets/Models/Cables/aux_cable.fbx.meta
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
