@@ -3,7 +3,32 @@ guid: aefb9a562df108b4eaefa439f2d3ec9f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base
+    second: {fileID: 2100000, guid: 507acfa61d51a483c8724a36f262eb60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ON OFF
+    second: {fileID: 2100000, guid: 15ae9f2720ac844f5a396c48b11fd47f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SLIDERS
+    second: {fileID: 2100000, guid: ec985d2b971aa407a98e7a8042aca6d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TASTI SOPRA AKAI
+    second: {fileID: 2100000, guid: 723264d88922d43f3a79804c781ee7e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRASP
+    second: {fileID: 2100000, guid: b4878c2b1c64d4e3f9277253ccf85906, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
