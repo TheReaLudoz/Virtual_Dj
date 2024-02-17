@@ -71,14 +71,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1885017543988998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 227f1f9f54472d146878c9d399a7d5f8, type: 3}
+  m_Script: {fileID: 11500000, guid: eb53b5dc378aa40a0becabbbc3a65384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraT: {fileID: 0}
+  _cameraT: {fileID: 3330123801174029895}
   _speed: 5
   _mouseSensitivity: 100
   _gravity: -9.81
-  _groundCheck: {fileID: 0}
+  _groundCheck: {fileID: 3325388810043001757}
   _groundDistance: 0.4
   _groundMask:
     serializedVersion: 2
@@ -93,10 +93,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1885017543988998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3d63a57ac6337469048ffc704abdca, type: 3}
+  m_Script: {fileID: 11500000, guid: 7aba0de1b708a47b09d44f3401fd2b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fpsCameraT: {fileID: 0}
+  _fpsCameraT: {fileID: 3330123801174029895}
   _debugRay: 0
   _interactionDistance: 0
   _target: {fileID: 0}
