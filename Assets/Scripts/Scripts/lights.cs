@@ -5,37 +5,60 @@ using UnityEngine;
 public class LightScript : MonoBehaviour
 {
     public Light _Light;
-    public float MinTime;
-    public float MaxTime;
-    public float Timer;
-    public AudioSource AS;
-    public AudioClip LightAudio;
+    public float Time;
+    public bool BPM;
+    public float BPMValue;
+    private Coroutine flashingCoroutine;
 
     // Start is called before the first frame update
     void Start()
-    {
-        Timer = Random.Range(MinTime, MaxTime);
 
+    {
+        _Light = GetComponent<Light>();
+        StartFlashing();
+            
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Light();
+     
     }
 
-    void Light()
+    void StartFlashing()
     {
-        if (Timer > 0)
-            Timer -= Time.deltaTime;
-
-        if (Timer <= 0)
+        if (flashingCoroutine != null)
         {
-            _Light.enabled = !_Light.enabled;
-            Timer = Random.Range(MinTime, MaxTime);
-            AS.PlayOneShot(LightAudio);
-            
+            StopCoroutine(flashingCoroutine);
+        }
+
+        if (BPM)
+        {
+            flashingCoroutine = StartCoroutine(FlashWithMusic());
+        }
+        else
+        {
+            flashingCoroutine = StartCoroutine(Flashing());
         }
     }
 
+    IEnumerator Flashing()
+    {
+        while (BPM==false)
+        {
+            yield return new WaitForSeconds(Time);
+            _Light.enabled = !_Light.enabled;
+        }
+        StartFlashing();
+
+    }
+
+    IEnumerator FlashWithMusic()
+    {
+      
+        {
+            yield return new WaitForSeconds(60f / BPMValue);
+            _Light.enabled = !_Light.enabled;
+        }
+        StartFlashing();
+    }
 }
