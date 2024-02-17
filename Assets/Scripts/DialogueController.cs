@@ -1,76 +1,80 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
 
-public class DialogueController : MonoBehaviour
+public class InteractiveObject : MonoBehaviour
 {
-    public Material outlineMaterial; // Materiale per il contorno
-    public Color highlightColor;
+    public Color highlightColor = Color.yellow;
+    public Color standardColor = Color.white;
     public GameObject interactionCanvas;
-    public TMP_Text interactionText;
+    public TMP_Text messageText;
+    public GameObject interactionHintCanvas; // Nuovo canvas per il messaggio di hint
+    public TMP_Text interactionHintText; // Nuovo testo per il messaggio di hint
 
-    [TextArea(3, 10)] // Permette l'inserimento di testo su più righe nell'Inspector di Unity
-    public string defaultInteractionText = "Benvenuto! Questo è un esempio di interazione.";
+    [SerializeField]
+    private string[] messages;
 
+    private int currentMessageIndex = -1;
     private Material originalMaterial;
-    private Renderer objectRenderer;
     private bool isMouseOver = false;
-
-    public float typingSpeed = 0.05f; // Velocità di scrittura del testo
 
     void Start()
     {
         originalMaterial = GetComponent<Renderer>().material;
-        objectRenderer = GetComponent<Renderer>();
-        interactionCanvas.SetActive(false); // Assicura che il canvas sia disattivato all'avvio
+        interactionCanvas.SetActive(false);
+        interactionHintCanvas.SetActive(false); // Assicura che il canvas di hint sia disattivato all'avvio
     }
 
     void Update()
     {
-        if (isMouseOver)
+        if (isMouseOver && (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
-            if (Input.GetMouseButtonDown(0)) // Controllo se è stato premuto il pulsante sinistro del mouse
+            if (currentMessageIndex < messages.Length - 1)
             {
-                // Avvia l'interazione solo se il canvas non è già attivo
-                if (!interactionCanvas.activeSelf)
-                {
-                    interactionCanvas.SetActive(true);
-                    StartCoroutine(TypeText(defaultInteractionText));
-                }
+                currentMessageIndex++;
+                DisplayMessage(messages[currentMessageIndex]);
+            }
+            else
+            {
+                interactionCanvas.SetActive(false);
+                currentMessageIndex = -1;
             }
         }
     }
 
     void OnMouseOver()
     {
+        if (GetComponent<Renderer>() != null)
+        {
+            GetComponent<Renderer>().material.color = highlightColor;
+        }
         isMouseOver = true;
-        // Aggiunge il contorno all'oggetto quando il mouse è sopra di esso
-        objectRenderer.material = outlineMaterial;
-        interactionText.text = "Click sinistro per parlare"; // Imposta il testo di interazione
+
+        // Attiva il canvas di hint quando il mouse passa sopra all'oggetto
+        interactionHintCanvas.SetActive(true);
     }
 
     void OnMouseExit()
     {
-        isMouseOver = false;
-        // Rimuove il contorno e ripristina il materiale originale quando il mouse non è più sopra l'oggetto
-        objectRenderer.material = originalMaterial;
-        interactionText.text = ""; // Rimuove il testo di interazione
-    }
-
-    // Metodo per impostare il testo di interazione
-    public void SetInteractionText(string text)
-    {
-        interactionText.text = text;
-    }
-
-    // Coroutine per scrivere il testo gradualmente
-    IEnumerator TypeText(string text)
-    {
-        interactionText.text = "";
-        foreach (char letter in text.ToCharArray())
+        if (GetComponent<Renderer>() != null)
         {
-            interactionText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            GetComponent<Renderer>().material.color = standardColor;
         }
+        isMouseOver = false;
+
+        // Disattiva il canvas di hint quando il mouse esce dall'oggetto
+        interactionHintCanvas.SetActive(false);
+    }
+
+    void DisplayMessage(string message)
+    {
+        interactionCanvas.SetActive(true);
+        messageText.text = message;
+    }
+
+    // Metodo per aggiornare la lista dei messaggi e resettare l'indice corrente
+    public void UpdateMessages(string[] newMessages)
+    {
+        messages = newMessages;
+        currentMessageIndex = -1;
     }
 }
