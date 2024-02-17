@@ -3,7 +3,17 @@ guid: 6b0eb93ea5e4ea940bbbcfe59f04d87b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lowpoly_Body
+    second: {fileID: 2100000, guid: 001176d360a5847a58dbca63c748e1a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lowpoly_Screen
+    second: {fileID: 2100000, guid: f5edddd6c437640c8b211327af53eb9c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
