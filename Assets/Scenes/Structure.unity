@@ -908,7 +908,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.03, g: 0.029473683, b: 0.029473683, a: 1}
+      maxColor: {r: 0.02, g: 0.02, b: 0.02, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6193,13 +6193,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271554466}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5059813, y: -0.50598127, z: 0.49394628, w: -0.49394628}
-  m_LocalPosition: {x: -0.00022892049, y: -0.000987941, z: -0.00008743466}
+  m_LocalRotation: {x: -0.5567338, y: -0.44953486, z: 0.43884248, w: -0.5434917}
+  m_LocalPosition: {x: 0.01025, y: -0.00439, z: 0.00193}
   m_LocalScale: {x: 0.004008084, y: 0.0040080855, z: 0.0040080845}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 966669022}
-  m_LocalEulerAnglesHint: {x: 270, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 91.379, y: 0, z: -77.83801}
 --- !u!108 &271554468
 Light:
   m_ObjectHideFlags: 0
@@ -6212,10 +6212,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 40
+  m_Intensity: 8
   m_Range: 8
-  m_SpotAngle: 43.4
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 58
+  m_InnerSpotAngle: 18
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -10549,15 +10549,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3905368936855479518, guid: 4d5537b427a8a4312a5e08409fa356c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0014
+      value: -1.24
       objectReference: {fileID: 0}
     - target: {fileID: -3905368936855479518, guid: 4d5537b427a8a4312a5e08409fa356c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.231
+      value: 1.222
       objectReference: {fileID: 0}
     - target: {fileID: -3905368936855479518, guid: 4d5537b427a8a4312a5e08409fa356c9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0069
+      value: -0.015
       objectReference: {fileID: 0}
     - target: {fileID: -3905368936855479518, guid: 4d5537b427a8a4312a5e08409fa356c9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19628,7 +19628,7 @@ Transform:
   m_GameObject: {fileID: 1833586682}
   serializedVersion: 2
   m_LocalRotation: {x: 0.005764029, y: 0.99684715, z: -0.0726475, w: -0.03138307}
-  m_LocalPosition: {x: -0.1, y: 3.216, z: 16.527}
+  m_LocalPosition: {x: 0.32, y: 3.21, z: 16.5}
   m_LocalScale: {x: 1, y: 1, z: 2.5965304}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19726,6 +19726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1863059557}
   - component: {fileID: 1863059558}
+  - component: {fileID: 1863059559}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -19810,6 +19811,22 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1863059559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863059556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb5edb11bcf64bc19b3a23dd07bb1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Light: {fileID: 1863059558}
+  Time: 0.5
+  BPM: 0
+  BPMValue: 120
 --- !u!1001 &1910289557
 PrefabInstance:
   m_ObjectHideFlags: 0
