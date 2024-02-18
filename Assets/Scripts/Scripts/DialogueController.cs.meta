@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Scripts/FirstPersonCharacterController.cs.meta
+guid: fd476012311d3be41855f5ef7be1aa60
+========
+guid: 9da1060e6a928ea499e8a9e829fa59d4
+>>>>>>>> origin/main:Assets/Scripts/DialogueController.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
