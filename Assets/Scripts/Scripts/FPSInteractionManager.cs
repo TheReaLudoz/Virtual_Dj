@@ -28,7 +28,7 @@ public class FPSInteractionManager : MonoBehaviour
     {
         _rayOrigin = _fpsCameraT.position + _fpsController.radius * _fpsCameraT.forward;
 
-        if(_grabbedObject == null)
+        if (_grabbedObject == null)
             CheckInteraction();
 
         if (_grabbedObject != null && Input.GetMouseButtonDown(0))
@@ -50,8 +50,8 @@ public class FPSInteractionManager : MonoBehaviour
             //Check if is interactable
             _pointingInteractable = hit.transform.GetComponent<Interactable>();
             if (_pointingInteractable)
-            { 
-                if(Input.GetMouseButtonDown(0))
+            {
+                if (Input.GetMouseButtonDown(0))
                     _pointingInteractable.Interact(gameObject);
             }
 
@@ -64,7 +64,7 @@ public class FPSInteractionManager : MonoBehaviour
                     _pointingGrabbable.Grab(gameObject);
                     Grab(_pointingGrabbable);
                 }
-                    
+
             }
         }
         //If NOTHING is detected set all to null
