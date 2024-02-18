@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LightScript : MonoBehaviour
 {
     public Button3D changeLights;
@@ -18,12 +19,25 @@ public class LightScript : MonoBehaviour
         changeLights.OnButtonPressed += OnChangeLightsButtonPressed;
         _Light = GetComponent<Light>();
         StartFlashing();
-
+        // Sottoscrivi al metodo OnBPMValueChanged all'evento statico OnBPMValueChanged
+        KnobsAsset.BPMModifierKnobListener.OnBPMValueChanged += UpdateBPMValue;
     }
 
     void Update()
     {
 
+    }
+    // Metodo per gestire l'aggiornamento del valore BPM
+    private void UpdateBPMValue(float newBPM)
+    {
+        BPMValue = newBPM;
+        Debug.Log(newBPM);
+    }
+
+    // Non dimenticare di annullare la sottoscrizione all'evento quando l'oggetto viene distrutto
+    private void OnDestroy()
+    {
+        KnobsAsset.BPMModifierKnobListener.OnBPMValueChanged -= UpdateBPMValue;
     }
 
     private void OnChangeLightsButtonPressed()

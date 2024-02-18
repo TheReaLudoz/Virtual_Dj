@@ -8,6 +8,9 @@ namespace KnobsAsset
     /// </summary>
     public class BPMModifierKnobListener : KnobListener
     {
+        public delegate void BPMValueChangedEventHandler(float newBPM);
+        public static event BPMValueChangedEventHandler OnBPMValueChanged;
+
         [Tooltip("The Audio Source playing the audio track")]
         [SerializeField] private AudioSource audioSource = default;
 
@@ -22,13 +25,13 @@ namespace KnobsAsset
 
         private float GetBPMFromSpeed(float speed)
         {
-            // Calcola il BPM corrispondente alla velocità di riproduzione
+            // Calcola il BPM corrispondente alla velocitï¿½ di riproduzione
             return Mathf.Lerp(minBPM, maxBPM, Mathf.InverseLerp(0.5f, 2f, speed));
         }
 
         public override void OnKnobValueChange(float knobPercentValue)
         {
-            // Calcola la nuova velocità di riproduzione basata sul valore della manopola
+            // Calcola la nuova velocitï¿½ di riproduzione basata sul valore della manopola
             float newSpeed = Mathf.Lerp(0.5f, 2f, knobPercentValue);
             audioSource.pitch = newSpeed;
 
@@ -39,6 +42,7 @@ namespace KnobsAsset
             if (bpmText != null)
             {
                 bpmText.text = "BPM: " + Mathf.RoundToInt(newBPM);
+                OnBPMValueChanged.Invoke(newBPM);
             }
         }
     }
