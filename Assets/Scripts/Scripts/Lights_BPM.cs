@@ -15,15 +15,15 @@ public class LightScript : MonoBehaviour
     void Start()
 
     {
-        changeLights.OnButtonPressed+=OnChangeLightsButtonPressed;
+        changeLights.OnButtonPressed += OnChangeLightsButtonPressed;
         _Light = GetComponent<Light>();
         StartFlashing();
-            
+
     }
 
     void Update()
     {
-     
+
     }
 
     private void OnChangeLightsButtonPressed()
@@ -58,7 +58,7 @@ public class LightScript : MonoBehaviour
 
     IEnumerator Flashing()
     {
-        while (BPM==false)
+        while (BPM == false)
         {
             yield return new WaitForSeconds(Time);
             _Light.enabled = !_Light.enabled;
@@ -69,7 +69,7 @@ public class LightScript : MonoBehaviour
 
     IEnumerator FlashWithMusic()
     {
-      
+
         {
             yield return new WaitForSeconds(60f / BPMValue);
             _Light.enabled = !_Light.enabled;
