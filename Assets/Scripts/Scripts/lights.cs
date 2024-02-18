@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightScript : MonoBehaviour
 {
+    public Button3D changeLights;
     public Light _Light;
     public float Time;
     public bool BPM;
@@ -14,6 +15,7 @@ public class LightScript : MonoBehaviour
     void Start()
 
     {
+        changeLights.OnButtonPressed+=OnChangeLightsButtonPressed;
         _Light = GetComponent<Light>();
         StartFlashing();
             
@@ -23,6 +25,19 @@ public class LightScript : MonoBehaviour
     {
      
     }
+
+    private void OnChangeLightsButtonPressed()
+    {
+        if (BPM)
+        {
+            BPM = false;
+        }
+        else
+        {
+            BPM = true;
+        }
+    }
+
 
     void StartFlashing()
     {

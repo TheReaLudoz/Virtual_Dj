@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class PhysicsGrabbable : Grabbable
 {
+
     private Rigidbody _rigidbody;
     private Collider _collider;
 
