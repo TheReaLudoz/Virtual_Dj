@@ -24,6 +24,10 @@ namespace KnobsAsset
         [SerializeField] private bool AdjustRange = true;
         [SerializeField] private float MinimumRange = 10f;
         [SerializeField] private float MaximumRange = 100f;
+        [SerializeField] private bool AdjustTime = true;
+        [SerializeField] private float MinimumTime = 0.3f;
+        [SerializeField] private float MaximumTime = 3f;
+        public LightScript changeTime;
 
         private void Awake()
         {
@@ -38,6 +42,7 @@ namespace KnobsAsset
             float intensity = Mathf.Lerp(MinimumIntensity, MaximumIntensity, knobPercentValue);
             Color color = Color.Lerp(MinimumColor, MaximumColor, knobPercentValue);
             float range = Mathf.Lerp(MinimumRange, MaximumRange, knobPercentValue);
+            float time = Mathf.Lerp(MinimumTime, MaximumTime, knobPercentValue);
 
             foreach (Light light in Lights)
             {
@@ -52,6 +57,10 @@ namespace KnobsAsset
                 if (AdjustRange)
                 {
                     light.range = range;
+                }
+                if (AdjustTime)
+                {
+                    changeTime.Time = time;
                 }
             }
         }

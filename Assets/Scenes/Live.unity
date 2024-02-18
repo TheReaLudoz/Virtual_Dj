@@ -10440,15 +10440,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lights:
   - {fileID: 1718473635}
-  AdjustIntensity: 1
+  AdjustIntensity: 0
   MinimumIntensity: 5
   MaximumIntensity: 20
-  AdjustColor: 1
+  AdjustColor: 0
   MinimumColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   MaximumColor: {r: 1, g: 1, b: 1, a: 1}
-  AdjustRange: 1
+  AdjustRange: 0
   MinimumRange: 10
   MaximumRange: 100
+  AdjustTime: 1
+  MinimumTime: 0.3
+  MaximumTime: 3
+  changeTime: {fileID: 0}
 --- !u!4 &469266153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 520331537538784239, guid: ab87920b4ee7f7849a687b3e742878c5, type: 3}
@@ -12006,12 +12010,16 @@ MonoBehaviour:
   AdjustIntensity: 1
   MinimumIntensity: 5
   MaximumIntensity: 20
-  AdjustColor: 1
-  MinimumColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  AdjustColor: 0
+  MinimumColor: {r: 0.015686274, g: 1, b: 0.06629426, a: 1}
   MaximumColor: {r: 1, g: 1, b: 1, a: 1}
   AdjustRange: 1
   MinimumRange: 10
   MaximumRange: 100
+  AdjustTime: 0
+  MinimumTime: 0.3
+  MaximumTime: 3
+  changeTime: {fileID: 0}
 --- !u!1 &659155653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9147999952135945236, guid: 94113e8316d434d30a486bbfda7e9180, type: 3}
@@ -12604,16 +12612,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lights:
-  - {fileID: 1718473635}
+  - {fileID: 1863059558}
+  - {fileID: 1009763091}
   AdjustIntensity: 1
   MinimumIntensity: 5
   MaximumIntensity: 20
-  AdjustColor: 1
-  MinimumColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  AdjustColor: 0
+  MinimumColor: {r: 1, g: 0.015686367, b: 0.015686274, a: 1}
   MaximumColor: {r: 1, g: 1, b: 1, a: 1}
   AdjustRange: 1
   MinimumRange: 10
   MaximumRange: 100
+  AdjustTime: 0
+  MinimumTime: 0.3
+  MaximumTime: 3
+  changeTime: {fileID: 0}
 --- !u!1001 &767166730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24700,7 +24713,7 @@ MonoBehaviour:
   _Light: {fileID: 1863059558}
   Time: 0.5
   BPM: 0
-  BPMValue: 120
+  BPMValue: 0
 --- !u!1001 &1910289557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25541,16 +25554,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lights:
-  - {fileID: 1718473635}
+  - {fileID: 292139283}
   AdjustIntensity: 1
   MinimumIntensity: 5
   MaximumIntensity: 20
-  AdjustColor: 1
-  MinimumColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  AdjustColor: 0
+  MinimumColor: {r: 0.015686274, g: 0.2369418, b: 1, a: 1}
   MaximumColor: {r: 1, g: 1, b: 1, a: 1}
   AdjustRange: 1
   MinimumRange: 10
   MaximumRange: 100
+  AdjustTime: 0
+  MinimumTime: 0.3
+  MaximumTime: 3
+  changeTime: {fileID: 0}
 --- !u!1 &2054111511
 GameObject:
   m_ObjectHideFlags: 0
