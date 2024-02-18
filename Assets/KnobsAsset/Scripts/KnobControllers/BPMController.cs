@@ -1,4 +1,5 @@
 using UnityEngine;
+
 using TMPro;
 
 namespace KnobsAsset
@@ -9,16 +10,13 @@ namespace KnobsAsset
     public class BPMModifierKnobListener : KnobListener
     {
         public delegate void BPMValueChangedEventHandler(float newBPM);
-        public static event BPMValueChangedEventHandler OnBPMValueChanged;
 
         [Tooltip("The Audio Source playing the audio track")]
         [SerializeField] private AudioSource audioSource = default;
 
-        [Tooltip("Minimum BPM value")]
-        [SerializeField] private float minBPM = 60f;
+        private float minBPM = 80f;
 
-        [Tooltip("Maximum BPM value")]
-        [SerializeField] private float maxBPM = 180f;
+        private float maxBPM = 200f;
 
         [Tooltip("TextMeshProUGUI to display the current BPM")]
         [SerializeField] private TextMeshProUGUI bpmText = null;
@@ -42,7 +40,7 @@ namespace KnobsAsset
             if (bpmText != null)
             {
                 bpmText.text = "BPM: " + Mathf.RoundToInt(newBPM);
-                OnBPMValueChanged.Invoke(newBPM);
+  
             }
         }
     }

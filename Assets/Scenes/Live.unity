@@ -6879,7 +6879,7 @@ AudioSource:
   m_GameObject: {fileID: 276176423}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 27a8022db86183046a389f674a24f44c, type: 2}
   m_audioClip: {fileID: 8300000, guid: 07ad51dc534e6fc48855b9162e307c23, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -7169,8 +7169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 276176424}
-  minBPM: 80
-  maxBPM: 150
   bpmText: {fileID: 0}
 --- !u!4 &298459267 stripped
 Transform:
@@ -12844,11 +12842,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4082c6ea37df41298161d9aec477d98, type: 3}
+--- !u!1 &809150156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 520331537538784237, guid: ab87920b4ee7f7849a687b3e742878c5, type: 3}
+  m_PrefabInstance: {fileID: 1295633516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &809150157 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 520331537538784239, guid: ab87920b4ee7f7849a687b3e742878c5, type: 3}
   m_PrefabInstance: {fileID: 1295633516}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &809150160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809150156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961db80a08cff7842997a91430e42d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 276176424}
+  bpmText: {fileID: 0}
 --- !u!1001 &824405147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14550,11 +14567,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aefb9a562df108b4eaefa439f2d3ec9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2127
+      value: 1.186
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aefb9a562df108b4eaefa439f2d3ec9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.019
+      value: 2.0149
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aefb9a562df108b4eaefa439f2d3ec9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16062,7 +16079,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 565667201278488093, guid: ab87920b4ee7f7849a687b3e742878c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2054111512}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 520331537538784237, guid: ab87920b4ee7f7849a687b3e742878c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 809150160}
   m_SourcePrefab: {fileID: 100100000, guid: ab87920b4ee7f7849a687b3e742878c5, type: 3}
 --- !u!1001 &1312914901
 PrefabInstance:
@@ -24614,7 +24634,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.9622642, g: 0, b: 0, a: 1}
   m_Intensity: 10
-  m_Range: 20
+  m_Range: 20.000004
   m_SpotAngle: 86
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -24675,6 +24695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb5edb11bcf64bc19b3a23dd07bb1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 276176424}
   changeLights: {fileID: 1856590849}
   _Light: {fileID: 1863059558}
   Time: 0.5
