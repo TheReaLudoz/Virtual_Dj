@@ -40,8 +40,7 @@ namespace KnobsAsset
             float intensity = Mathf.Lerp(MinimumIntensity, MaximumIntensity, knobPercentValue);
             Color color = Color.Lerp(MinimumColor, MaximumColor, knobPercentValue);
             float range = Mathf.Lerp(MinimumRange, MaximumRange, knobPercentValue);
-            float time = Mathf.Lerp(MinimumTime, MaximumTime, knobPercentValue);
-
+            
             foreach (Light light in Lights)
             {
                 if (AdjustIntensity)

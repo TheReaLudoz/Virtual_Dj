@@ -14,9 +14,9 @@ namespace KnobsAsset
         [Tooltip("The Audio Source playing the audio track")]
         [SerializeField] private AudioSource audioSource = default;
 
-        private float minBPM = 80f;
+        public float minBPM = 80f;
 
-        private float maxBPM = 200f;
+        public float maxBPM = 200f;
 
         [Tooltip("TextMeshProUGUI to display the current BPM")]
         [SerializeField] private TextMeshProUGUI bpmText = null;
