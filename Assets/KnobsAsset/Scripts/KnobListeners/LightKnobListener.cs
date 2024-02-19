@@ -25,17 +25,15 @@ namespace KnobsAsset
         [SerializeField] private float MinimumRange = 10f;
         [SerializeField] private float MaximumRange = 100f;
         [SerializeField] private bool AdjustTime = true;
-        [SerializeField] private float MinimumTime = 0.3f;
-        [SerializeField] private float MaximumTime = 3f;
-        public LightScript changeTime;
 
         private void Awake()
         {
-            if (Lights.Length < 1)
+            if (Lights.Length < 1);
             {
                 Debug.LogWarning("No lights assigned, this listener will have no effect", this);
             }
         }
+
 
         public override void OnKnobValueChange(float knobPercentValue)
         {
@@ -58,10 +56,7 @@ namespace KnobsAsset
                 {
                     light.range = range;
                 }
-                if (AdjustTime)
-                {
-                    changeTime.Time = time;
-                }
+             
             }
         }
     }
