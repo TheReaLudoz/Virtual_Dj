@@ -5,28 +5,31 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public GameObject panel;
+    public GameObject interactionPanel;
+    public GameObject dialoguePanel;
+    public GameObject objectToAnimate;
+    public Animator objectAnimator;
     public string[] lines;
     public float textSpeed;
-    public AudioSource audioSource;
-    public AudioClip[] audioClips;
-    public Animation animation;
-    public string idleAnimationName; // Nome dell'animazione di idle
-    public string talkAnimationName; // Nome dell'animazione "parla" (Jump)
+    // public AudioSource audioSource;
+    // public AudioClip[] audioClips;
+    // public Animation animation;
+    // public string idleAnimationName;
+    // public string talkAnimationName;
+
     private int index;
     private bool inRange = false;
     private bool dialogueStarted = false;
-    private bool blockMovement = false;
-    private bool firstLineDisplayed = false; // Flag per verificare se la prima riga di dialogo è stata visualizzata
-    private bool dialogueStartedOnce = false; // Flag per verificare se il dialogo è già stato avviato almeno una volta
+    private bool firstLineDisplayed = false;
+    private bool dialogueStartedOnce = false;
 
     private GameObject player;
     private CharacterController playerController;
 
     void Start()
     {
-        textComponent.gameObject.SetActive(false);
-        panel.SetActive(false);
+        interactionPanel.SetActive(false);
+        dialoguePanel.SetActive(false);
 
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -34,19 +37,10 @@ public class Dialogue : MonoBehaviour
             playerController = player.GetComponent<CharacterController>();
         }
 
-        if (audioSource == null)
+        // Se l'Animator Ã¨ presente, disattiva l'animazione all'inizio
+        if (objectAnimator != null)
         {
-            audioSource = GetComponent<AudioSource>();
-        }
-
-        if (animation != null)
-        {
-            animation.wrapMode = WrapMode.Loop;
-            animation.Stop();
-            if (!string.IsNullOrEmpty(idleAnimationName))
-            {
-                animation.Play(idleAnimationName);
-            }
+            objectAnimator.enabled = false;
         }
     }
 
@@ -69,16 +63,9 @@ public class Dialogue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player entered the interaction zone.");
             inRange = true;
-            if (!dialogueStarted)
-            {
-                panel.SetActive(true);
-            }
-            else if (!firstLineDisplayed) // Se il dialogo è in corso ma la prima riga non è stata visualizzata
-            {
-                panel.SetActive(false); // Disattiva il pannello
-                animation.Play(idleAnimationName); // Passa all'animazione "idle"
-            }
+            interactionPanel.SetActive(true);
         }
     }
 
@@ -86,20 +73,12 @@ public class Dialogue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player exited the interaction zone.");
             inRange = false;
+            interactionPanel.SetActive(false);
             if (!firstLineDisplayed)
             {
-                // Disattiva il pannello solo se non è stata visualizzata la prima riga di dialogo
-                panel.SetActive(false);
-            }
-            if (!dialogueStarted)
-            {
-                // Disattiva il collider solo se il dialogo non è in corso
-                GetComponent<Collider>().enabled = false;
-            }
-            else if (!firstLineDisplayed) // Se il dialogo è in corso ma la prima riga non è stata visualizzata
-            {
-                animation.Play(idleAnimationName); // Passa all'animazione "idle"
+                dialoguePanel.SetActive(false);
             }
         }
     }
@@ -107,25 +86,27 @@ public class Dialogue : MonoBehaviour
     public void StartDialogue()
     {
         dialogueStarted = true;
-        index = dialogueStartedOnce ? 1 : 0; // Parti dalla seconda riga se il dialogo è già stato avviato almeno una volta
+        index = dialogueStartedOnce ? 1 : 0;
         textComponent.text = "";
         StartCoroutine(TypeLine());
 
-        textComponent.gameObject.SetActive(true);
-        panel.SetActive(true);
+        dialoguePanel.SetActive(true);
+        interactionPanel.SetActive(false);
 
-        blockMovement = true;
-
-        if (index < audioClips.Length && audioClips[index] != null)
+        // Disabilita il CharacterController del giocatore
+        if (playerController != null)
         {
-            audioSource.clip = audioClips[index];
-            audioSource.Play();
+            playerController.enabled = false;
         }
 
-        if (animation != null && !string.IsNullOrEmpty(talkAnimationName))
+        // Se l'Animator Ã¨ presente, disattiva l'animazione all'inizio del dialogo
+        if (objectAnimator != null)
         {
-            animation.Play(talkAnimationName);
+            objectAnimator.enabled = false;
         }
+
+        // Se necessario, puoi inserire qui la logica per avviare l'audio o l'animazione di idle
+        // ...
     }
 
     IEnumerator TypeLine()
@@ -144,57 +125,41 @@ public class Dialogue : MonoBehaviour
     {
         if (textComponent.text.Length == lines[index].Length)
         {
-            audioSource.Stop();
-
             if (index < lines.Length - 1)
             {
                 index++;
                 textComponent.text = "";
                 StartCoroutine(TypeLine());
-
-                if (index < audioClips.Length && audioClips[index] != null)
-                {
-                    audioSource.clip = audioClips[index];
-                    audioSource.Play();
-                }
             }
             else
             {
                 dialogueStarted = false;
                 textComponent.gameObject.SetActive(false);
-                panel.SetActive(false);
+                dialoguePanel.SetActive(false);
+                interactionPanel.SetActive(false);
 
+                // Riattiva il CharacterController del giocatore alla fine del dialogo
                 if (playerController != null)
                 {
                     playerController.enabled = true;
                 }
 
-                if (animation != null && !string.IsNullOrEmpty(idleAnimationName))
+                // Riattiva l'Animator alla fine del dialogo
+                if (objectAnimator != null)
                 {
-                    animation.Play(idleAnimationName);
+                    objectAnimator.enabled = true;
+                    // Avvia l'animazione associata all'Animator alla fine della conversazione
+                    objectAnimator.SetTrigger("EndConversation"); // Assicurati di impostare il nome del trigger nella tua animazione
                 }
 
-                // Disattiva il collider alla fine del dialogo
+                // Resetta il collider alla fine del dialogo
                 GetComponent<Collider>().enabled = false;
-
-                // Resetta il flag per la prima riga visualizzata per consentire la ripetizione del dialogo
                 firstLineDisplayed = false;
-
-                // Imposta il flag per indicare che il dialogo è stato avviato almeno una volta
                 dialogueStartedOnce = true;
-            }
-        }
-    }
 
-    void LateUpdate()
-    {
-        if (blockMovement && index > 0)
-        {
-            if (playerController != null)
-            {
-                playerController.enabled = false;
+                // Se necessario, puoi inserire qui la logica per avviare l'audio o l'animazione di idle
+                // ...
             }
-            blockMovement = false;
         }
     }
 }

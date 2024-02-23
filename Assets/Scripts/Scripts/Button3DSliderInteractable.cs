@@ -18,5 +18,6 @@ public class Button3DSliderInteractable : Interactable
     {
         button3DSlider.Slide();
         Debug.Log("Bottone slidato");
+
     }
 }

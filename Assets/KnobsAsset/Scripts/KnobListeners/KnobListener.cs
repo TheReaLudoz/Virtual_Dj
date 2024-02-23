@@ -13,5 +13,6 @@ namespace KnobsAsset
         /// </summary>
         /// <param name="knobPercentValue">Float from [0 - 1] corresponding to what position the knob is set to.</param>
         public abstract void OnKnobValueChange(float knobPercentValue);
+
     }
 }

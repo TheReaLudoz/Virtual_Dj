@@ -9,41 +9,55 @@ namespace KnobsAsset
     public class BPMModifierKnobListener : KnobListener
     {
         public delegate void BPMValueChangedEventHandler(float newBPM);
-        public static event BPMValueChangedEventHandler OnBPMValueChanged;
 
         [Tooltip("The Audio Source playing the audio track")]
         [SerializeField] private AudioSource audioSource = default;
-
-        [Tooltip("Minimum BPM value")]
-        [SerializeField] private float minBPM = 60f;
-
-        [Tooltip("Maximum BPM value")]
-        [SerializeField] private float maxBPM = 180f;
+        public float BPM;
+        private float minBPM;
+        private float maxBPM = 200f;
 
         [Tooltip("TextMeshProUGUI to display the current BPM")]
         [SerializeField] private TextMeshProUGUI bpmText = null;
 
+        // Imposta il BPM iniziale
+        public void SetInitialBPM(float bpm)
+        {
+            minBPM = bpm;
+            UpdateBPMText();
+            Debug.Log("Bottone BPM SKu");
+        }
+
+        private void UpdateBPMText()
+        {
+            // Calcola il nuovo BPM
+            float newBPM = GetBPMFromSpeed(audioSource.pitch);
+            ChangeBPM(newBPM);
+            // Aggiorna il testo dell'UI Text con il nuovo BPM
+            if (bpmText != null)
+            {
+               
+                bpmText.text = "BPM: " + Mathf.RoundToInt(newBPM);
+            }
+        }
+        public void ChangeBPM(float newBPM)
+        {
+            BPM = Mathf.RoundToInt(newBPM);
+        }
+
         private float GetBPMFromSpeed(float speed)
         {
-            // Calcola il BPM corrispondente alla velocit� di riproduzione
+            // Calcola il BPM corrispondente alla velocità di riproduzione
             return Mathf.Lerp(minBPM, maxBPM, Mathf.InverseLerp(0.5f, 2f, speed));
         }
 
         public override void OnKnobValueChange(float knobPercentValue)
         {
-            // Calcola la nuova velocit� di riproduzione basata sul valore della manopola
+            // Calcola la nuova velocità di riproduzione basata sul valore della manopola
             float newSpeed = Mathf.Lerp(0.5f, 2f, knobPercentValue);
             audioSource.pitch = newSpeed;
 
-            // Calcola il nuovo BPM
-            float newBPM = GetBPMFromSpeed(newSpeed);
-
             // Aggiorna il testo dell'UI Text con il nuovo BPM
-            if (bpmText != null)
-            {
-                bpmText.text = "BPM: " + Mathf.RoundToInt(newBPM);
-                OnBPMValueChanged.Invoke(newBPM);
-            }
-        }
-    }
+            UpdateBPMText();
+        }
+    }
 }
