@@ -12,17 +12,16 @@ public class MainMenu : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(loadingPanel.transform.parent);
-        
     }
     
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Intro");
     }
 
     public void PlayLive()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("Live");
     }
 
     public void QuitGame()

@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace KnobsAsset
 {
-    /// <summary>
-    /// Knob listener for adjusting volumes of two AudioSources based on knob position.
-    /// </summary>
     public class SliderTrack : KnobListener
     {
         [Tooltip("The first AudioSource.")]
@@ -18,9 +15,9 @@ namespace KnobsAsset
         public override void OnKnobValueChange(float knobPercentValue)
         {
             // Calcoliamo il volume per la prima traccia proporzionale alla posizione dello slider
-            volume1 = 1f - knobPercentValue;
+            volume1 = 2f - 2*knobPercentValue;
             // Il volume per la seconda traccia sarà proporzionale alla posizione dello slider
-            volume2 = knobPercentValue;
+            volume2 = 2*knobPercentValue;
 
             // Impostiamo i volumi per le tracce audio
             audioSource1.volume = volume1;

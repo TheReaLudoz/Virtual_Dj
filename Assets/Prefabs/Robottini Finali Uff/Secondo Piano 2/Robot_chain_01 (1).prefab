@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4795628678571059547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.647514
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.08811998
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.940058
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.76968926
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6384188
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -79.348
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      propertyPath: m_Name
+      value: Robot_chain_01 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2770616054645304741}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7520182792961407432}
+  m_SourcePrefab: {fileID: 100100000, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+--- !u!1 &5641909782369162250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 348d6b811880ad641a04445a55e9c1e0, type: 3}
+  m_PrefabInstance: {fileID: 4795628678571059547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2770616054645304741
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641909782369162250}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 008b0c0f2d4a0324ab7b6a0605fad985, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &7520182792961407432
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641909782369162250}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

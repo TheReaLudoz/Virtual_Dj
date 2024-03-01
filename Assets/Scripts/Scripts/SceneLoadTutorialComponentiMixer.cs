@@ -21,7 +21,7 @@ public class LoadSceneTutorialComponentiMixer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            StartCoroutine(LoadScene("Live"));
+            StartCoroutine(LoadScene("TutorialTransition"));
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

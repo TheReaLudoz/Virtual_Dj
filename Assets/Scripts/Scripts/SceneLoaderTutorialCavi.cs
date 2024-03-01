@@ -8,11 +8,17 @@ public class SceneLoaderTutorialCavi : MonoBehaviour
 
     public GameObject loadingPanel;
     public CanvasGroup canvasGroup;
-    // Start is called before the first frame update
-    public GameObject cable; // Aggiunta della variabile per il GameObject del cable
 
-    public GameObject vuoto;
 
+    private void OnEnable()
+    {
+        IlluminationController.OnAllCableGrabbed += OnAllCableGrabbed;
+    }
+
+    private void OnDisable()
+    {
+        IlluminationController.OnAllCableGrabbed -= OnAllCableGrabbed;
+    }
 
     void Start()
     {
@@ -24,23 +30,19 @@ public class SceneLoaderTutorialCavi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnCableDestroyed(cable);
-    
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             StartCoroutine(LoadScene("Menu"));
         }
     }
     
-    private void OnCableDestroyed(GameObject cable)
+    private void OnAllCableGrabbed()
     {
-        if (cable == null && !Object.ReferenceEquals(cable, null) && vuoto != null) // Verifica se il GameObject nel trigger è il playerObject
-        {
-            Debug.Log("Daje");
-            StartCoroutine(LoadScene("TutorialComponentiConsoleProva"));
-            cable = vuoto;
-        }
+        StartCoroutine(LoadScene("TutorialComponentiConsoleProva"));
     }
+
+
+
     IEnumerator LoadScene(string sceneName)
     {
         loadingPanel.SetActive(true);

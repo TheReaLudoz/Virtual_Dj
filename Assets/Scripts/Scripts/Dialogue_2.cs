@@ -7,22 +7,25 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public GameObject interactionPanel;
     public GameObject dialoguePanel;
-    public GameObject objectToAnimate;
+    public GameObject startMessagePanel;
+    public TextMeshProUGUI startMessageText;
+    public string startMessage;
     public Animator objectAnimator;
     public string[] lines;
     public float textSpeed;
-    // public AudioSource audioSource;
-    // public AudioClip[] audioClips;
-    // public Animation animation;
-    // public string idleAnimationName;
-    // public string talkAnimationName;
+    public AudioSource audioSource;
+    public AudioClip[] audioClips;
+
+    public AnimationClip startAnimation; // Animazione da riprodurre all'inizio del dialogo
+    public AnimationClip endAnimation; // Animazione da riprodurre alla fine del dialogo
 
     private int index;
     private bool inRange = false;
     private bool dialogueStarted = false;
     private bool firstLineDisplayed = false;
     private bool dialogueStartedOnce = false;
-
+    private bool dialogueEnded = false;
+    private bool allowDialogueRestart = true;
     private GameObject player;
     private CharacterController playerController;
 
@@ -30,6 +33,8 @@ public class Dialogue : MonoBehaviour
     {
         interactionPanel.SetActive(false);
         dialoguePanel.SetActive(false);
+        startMessagePanel.SetActive(true);
+        startMessageText.text = startMessage;
 
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -37,22 +42,26 @@ public class Dialogue : MonoBehaviour
             playerController = player.GetComponent<CharacterController>();
         }
 
-        // Se l'Animator è presente, disattiva l'animazione all'inizio
         if (objectAnimator != null)
         {
             objectAnimator.enabled = false;
+        }
+
+        if (audioSource != null)
+        {
+            audioSource.Stop();
         }
     }
 
     void Update()
     {
-        if (inRange && Input.GetKeyDown(KeyCode.E))
+        if (inRange && Input.GetKeyDown(KeyCode.E) && allowDialogueRestart)
         {
-            if (!dialogueStarted)
+            if (!dialogueStarted && !dialogueEnded)
             {
                 StartDialogue();
             }
-            else
+            else if (dialogueStarted && !dialogueEnded)
             {
                 NextLine();
             }
@@ -66,6 +75,7 @@ public class Dialogue : MonoBehaviour
             Debug.Log("Player entered the interaction zone.");
             inRange = true;
             interactionPanel.SetActive(true);
+            startMessagePanel.SetActive(false);
         }
     }
 
@@ -93,20 +103,26 @@ public class Dialogue : MonoBehaviour
         dialoguePanel.SetActive(true);
         interactionPanel.SetActive(false);
 
-        // Disabilita il CharacterController del giocatore
         if (playerController != null)
         {
             playerController.enabled = false;
         }
 
-        // Se l'Animator è presente, disattiva l'animazione all'inizio del dialogo
         if (objectAnimator != null)
         {
-            objectAnimator.enabled = false;
+            objectAnimator.enabled = true;
+            // Avvia l'animazione all'inizio del dialogo solo se è definita
+            if (startAnimation != null)
+            {
+                objectAnimator.Play(startAnimation.name);
+            }
         }
 
-        // Se necessario, puoi inserire qui la logica per avviare l'audio o l'animazione di idle
-        // ...
+        if (audioSource != null && audioClips != null && audioClips.Length > 0)
+        {
+            audioSource.clip = audioClips[0];
+            audioSource.Play();
+        }
     }
 
     IEnumerator TypeLine()
@@ -119,6 +135,10 @@ public class Dialogue : MonoBehaviour
                 yield return new WaitForSeconds(textSpeed);
             }
         }
+        else
+        {
+            dialogueEnded = true;
+        }
     }
 
     void NextLine()
@@ -130,6 +150,11 @@ public class Dialogue : MonoBehaviour
                 index++;
                 textComponent.text = "";
                 StartCoroutine(TypeLine());
+                if (audioSource != null && audioClips != null && audioClips.Length > index)
+                {
+                    audioSource.clip = audioClips[index];
+                    audioSource.Play();
+                }
             }
             else
             {
@@ -138,28 +163,31 @@ public class Dialogue : MonoBehaviour
                 dialoguePanel.SetActive(false);
                 interactionPanel.SetActive(false);
 
-                // Riattiva il CharacterController del giocatore alla fine del dialogo
                 if (playerController != null)
                 {
                     playerController.enabled = true;
                 }
 
-                // Riattiva l'Animator alla fine del dialogo
                 if (objectAnimator != null)
                 {
                     objectAnimator.enabled = true;
-                    // Avvia l'animazione associata all'Animator alla fine della conversazione
-                    objectAnimator.SetTrigger("EndConversation"); // Assicurati di impostare il nome del trigger nella tua animazione
+                    // Avvia l'animazione alla fine del dialogo solo se è definita
+                    if (endAnimation != null)
+                    {
+                        objectAnimator.Play(endAnimation.name);
+                    }
                 }
 
-                // Resetta il collider alla fine del dialogo
+                if (audioSource != null)
+                {
+                    audioSource.Stop();
+                }
+
                 GetComponent<Collider>().enabled = false;
                 firstLineDisplayed = false;
                 dialogueStartedOnce = true;
-
-                // Se necessario, puoi inserire qui la logica per avviare l'audio o l'animazione di idle
-                // ...
+                allowDialogueRestart = false;
             }
-        }
-    }
+        }
+    }
 }

@@ -16,6 +16,10 @@ public class Button3DInteractable : Interactable
 
     public override void Interact(GameObject caller)
     {
+    }
+
+    void OnMouseDown()
+    {
         button3D.Press();
         Debug.Log("Bottone Premuto");
     }

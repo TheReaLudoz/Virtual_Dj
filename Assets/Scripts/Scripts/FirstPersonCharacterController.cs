@@ -13,6 +13,7 @@ public class FirstPersonCharacterController : MonoBehaviour
     [SerializeField] private float _groundDistance = 0.4f;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _jumpHeight = 3f;
+    
 
 
     private CharacterController _characterController;
@@ -31,10 +32,10 @@ public class FirstPersonCharacterController : MonoBehaviour
     void Update()
     {
         UpdateCursor();
-
-        if(Cursor.lockState == CursorLockMode.None)
-            return;
-
+        
+        Cursor.lockState = CursorLockMode.Locked;
+    
+        
         //Ground Check
         _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
 
@@ -71,10 +72,11 @@ public class FirstPersonCharacterController : MonoBehaviour
 
     private void UpdateCursor()
     {
-        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(1))
+        if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButtonDown(0))
             Cursor.lockState = CursorLockMode.Locked;
 
-        if (Cursor.lockState == CursorLockMode.Locked && Input.GetKeyDown(KeyCode.Escape))
+        if (Cursor.lockState == CursorLockMode.Locked && Input.GetMouseButtonDown(1))
             Cursor.lockState = CursorLockMode.None;
+        
     }
 }

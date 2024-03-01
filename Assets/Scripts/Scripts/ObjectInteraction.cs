@@ -14,15 +14,7 @@ public class ObjectInteraction : Interactable
     // Implementa la funzione Interact ereditata da Interactable
     public override void Interact(GameObject caller)
     {
-        // Verifica se illuminationController è assegnato
-        if (illuminationController != null)
-        {
-            OnObjectPressed?.Invoke(gameObject);
-            Debug.Log("Evento OnObjectPressed invocato");
-        }
-        else
-        {
-            Debug.LogWarning("IlluminationController non assegnato in " + gameObject.name);
-        }
+        OnObjectPressed?.Invoke(gameObject);
+        Debug.Log("Evento OnObjectPressed invocato");
     }
 }

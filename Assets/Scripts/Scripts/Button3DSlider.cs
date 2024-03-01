@@ -7,8 +7,7 @@ using Unity.VisualScripting;
 public class Button3DSlider : MonoBehaviour
 {
     public Action OnButtonSlide;
-    private MeshRenderer renderer;
-    private bool isSlide = false;
+    
     public void Slide()
     {
         if (OnButtonSlide != null)

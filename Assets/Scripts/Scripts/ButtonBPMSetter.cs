@@ -5,6 +5,7 @@ using KnobsAsset;
 public class ButtonBPMSetter : MonoBehaviour
 {
     [SerializeField] private float minBPM = 60f; // Imposta il valore predefinito del minimo BPM
+    [SerializeField] private float maxBPM = 200f; // Imposta il valore predefinito del minimo BPM
     [SerializeField] private BPMModifierKnobListener bpmModifier; // Riferimento allo script BPMModifierKnobListener
 
     // Metodo chiamato quando il bottone viene cliccato
@@ -14,7 +15,7 @@ public class ButtonBPMSetter : MonoBehaviour
         if (bpmModifier != null)
         {
             // Imposta il BPM iniziale nel listener
-            bpmModifier.SetInitialBPM(minBPM);
+            bpmModifier.SetInitialBPM(minBPM, maxBPM);
             
         }
         else

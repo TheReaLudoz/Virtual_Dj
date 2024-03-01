@@ -25,6 +25,8 @@ public class LightScript : MonoBehaviour
     private float perc1;
     private float perc2;
     private float BPMtot;
+    public Color redColor;
+    private Color initialColor;
 
 
     private float GetBPMFromSpeed(float speed)
@@ -36,6 +38,8 @@ public class LightScript : MonoBehaviour
     void Start()
 
     {
+        initialColor=changeLights.GetComponent<Renderer>().material.color;
+        
         changeLights.OnButtonPressed += OnChangeLightsButtonPressed;
         _Light = GetComponent<Light>();
         BPMValue1 = bpmModifier1.BPM;
@@ -53,9 +57,16 @@ public class LightScript : MonoBehaviour
         perc2 = Perc.volume2;
         // Calcolo della media pesata
         BPMtot = ((perc1 * BPMValue1) + (perc2 * BPMValue2)) / (perc1 + perc2);
+        if (BPM)
+        {
+            changeLights.GetComponent<Renderer>().material.color = redColor;
 
-        // Output di debug per verificare il valore di BPMtot
-        Debug.Log("BPMtot: " + BPMtot);
+        }
+        else
+        {
+            changeLights.GetComponent<Renderer>().material.color = initialColor;
+        }
+       
     }
     
 
@@ -103,10 +114,9 @@ public class LightScript : MonoBehaviour
     IEnumerator FlashWithMusic()
     {
 
-        {
-            yield return new WaitForSeconds(60f / BPMtot);
-            _Light.enabled = !_Light.enabled;
-        }
+        
+        yield return new WaitForSeconds(60f / BPMtot);
+        _Light.enabled = !_Light.enabled;
         StartFlashing();
     }
 }

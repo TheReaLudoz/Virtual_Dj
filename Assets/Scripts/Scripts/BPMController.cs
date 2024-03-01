@@ -3,9 +3,6 @@ using TMPro;
 
 namespace KnobsAsset
 {
-    /// <summary>
-    /// Knob listener for adjusting the BPM of an audio track.
-    /// </summary>
     public class BPMModifierKnobListener : KnobListener
     {
         public delegate void BPMValueChangedEventHandler(float newBPM);
@@ -14,18 +11,20 @@ namespace KnobsAsset
         [SerializeField] private AudioSource audioSource = default;
         public float BPM;
         private float minBPM;
-        private float maxBPM = 200f;
+        private float maxBPM;
 
         [Tooltip("TextMeshProUGUI to display the current BPM")]
         [SerializeField] private TextMeshProUGUI bpmText = null;
 
         // Imposta il BPM iniziale
-        public void SetInitialBPM(float bpm)
+        public void SetInitialBPM(float bpm1, float bpm2)
         {
-            minBPM = bpm;
+            minBPM = bpm1;
+            maxBPM = bpm2;
             UpdateBPMText();
             Debug.Log("Bottone BPM SKu");
         }
+
 
         private void UpdateBPMText()
         {
@@ -47,13 +46,13 @@ namespace KnobsAsset
         private float GetBPMFromSpeed(float speed)
         {
             // Calcola il BPM corrispondente alla velocità di riproduzione
-            return Mathf.Lerp(minBPM, maxBPM, Mathf.InverseLerp(0.5f, 2f, speed));
+            return Mathf.Lerp(minBPM, maxBPM, Mathf.InverseLerp(0.333f, 1.667f, speed));
         }
 
         public override void OnKnobValueChange(float knobPercentValue)
         {
             // Calcola la nuova velocità di riproduzione basata sul valore della manopola
-            float newSpeed = Mathf.Lerp(0.5f, 2f, knobPercentValue);
+            float newSpeed = Mathf.Lerp(0f, 2f, knobPercentValue);
             audioSource.pitch = newSpeed;
 
             // Aggiorna il testo dell'UI Text con il nuovo BPM

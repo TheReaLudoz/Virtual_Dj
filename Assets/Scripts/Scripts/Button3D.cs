@@ -7,9 +7,6 @@ using Unity.VisualScripting;
 public class Button3D : MonoBehaviour
 {
     public Action OnButtonPressed;
-    private MeshRenderer renderer;
-
-    private bool isPressed = false;
 
     public void Press()
     { 

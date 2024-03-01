@@ -21,8 +21,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialComponentiMixer.unity
     guid: e6725ced2c9ccd843b4822bc588a2f38
   - enabled: 1
+    path: Assets/Scenes/TutorialTransition.unity
+    guid: d04f50bc187481941bb769355c1e6c9c
+  - enabled: 1
+    path: Assets/Scenes/PreLive.unity
+    guid: 49ecb130db1753c4dad1fe778647e039
+  - enabled: 1
     path: Assets/Scenes/Live.unity
-    guid: bb38aae102ab0ee4abd5812b6063feff
+    guid: 4e63816c557a587428791643c14d0725
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 339dcfdb0c361f04391cfc62051cac3e, type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 1d33a8281b2fc9840977c193b5cbe1f7, type: 2}

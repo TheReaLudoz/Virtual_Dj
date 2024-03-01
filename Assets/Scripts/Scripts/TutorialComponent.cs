@@ -6,10 +6,12 @@ public class TutorialComponent : MonoBehaviour
     public TMP_Text messageText;
     public string[] messages;
     public Canvas[] associatedCanvases; // Array di Canvas associati per mostrare il testo
+    public AudioSource audioSource; // AudioSource associabile dall'Inspector
+    public AudioClip[] audioClips; // Array di AudioClip associabili dall'Inspector
 
     private int currentMessageIndex = -1;
     private bool isMessageDisplayed = false;
-    private float messageSpeed = 28f; // Velocità di scrittura del messaggio (caratteri al secondo)
+    private float messageSpeed = 25f; // Velocità di scrittura del messaggio (caratteri al secondo)
     private float nextCharTime = 0f; // Tempo del prossimo carattere del messaggio
     private int currentCharIndex = 0; // Indice del carattere corrente del messaggio
 
@@ -55,6 +57,13 @@ public class TutorialComponent : MonoBehaviour
             messageText.gameObject.SetActive(true);
             isMessageDisplayed = true;
             nextCharTime = Time.time + 1f / messageSpeed;
+
+            // Riproduci l'AudioClip associato
+            if (currentMessageIndex < audioClips.Length && audioSource != null)
+            {
+                audioSource.clip = audioClips[currentMessageIndex];
+                audioSource.Play();
+            }
         }
         else
         {
@@ -75,6 +84,6 @@ public class TutorialComponent : MonoBehaviour
             {
                 associatedCanvases[i].gameObject.SetActive(true);
             }
-        }
-    }
+        }
+    }
 }
